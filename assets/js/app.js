@@ -23,6 +23,8 @@ var config = {
     messagingSenderId: "24241039386"
 };
 
+$("#songTable").DataTable();
+
 firebase.initializeApp(config);
 var database = firebase.database();
 
@@ -119,9 +121,7 @@ $("#search-button").click(function (event) {
                         //*************************************************************************************
                         if (linkReturn != "") {
              
-                            console.log("Spotify Link: " + linkReturn);
-
-                                           
+                            console.log("Spotify Link: " + linkReturn);                                           
 
                             $("#songTable > tbody").append("<tr><td>" +
                                 trackList[i].track.track_name +
@@ -147,6 +147,6 @@ $("#search-button").click(function (event) {
         }
     });
 
-    $("#songTable").DataTable();
+  
 
 });
