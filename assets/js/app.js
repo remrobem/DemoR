@@ -1,7 +1,4 @@
-
-
-
-const tableHTML = `<table class="table table-hover" class="display" id="songTable" style="width:70%">
+const tableHTML = `<table class="table table-hover table-striped" class="display" id="songTable" style="width:70%">
 <thead>
     <tr>
         <th>Title</th>
@@ -64,7 +61,7 @@ $("#search-button").click(function (event) {
 
             // build the basic table for the data
             $("#song-return").append(tableHTML);
-          
+
             for (let i = 0; i < trackList.length; i++) {
 
                 let songTitle = trackList[i].track.track_name;
@@ -146,12 +143,12 @@ $("#search-button").click(function (event) {
                         };
 
                     });
-                    $("#songTable").DataTable();
-            };
-            
-        }
-               
-    });
-  
-});
 
+            };
+            $("#songTable").DataTable();
+        },
+        error: function () {
+        }
+    });
+
+});
