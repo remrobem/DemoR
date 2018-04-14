@@ -37,45 +37,34 @@ $("#search-button").click(function (event) {
     });
 
     $.ajax({
-            method: "GET",
-            data: {
-                apikey: "ab6018d2a0d1bbeef89eaa602857cdd8",
-                q_lyrics: lyrics,
-                page_size: 30,
-                format: "jsonp",
-                callback: "jsonp_callback"
-            },
-            url: "https://api.musixmatch.com/ws/1.1/track.search",
-            async: false,
-            dataType: "jsonp",
-            jsonpCallback: "jsonp_callback",
-            contentType: 'application/json',
-            success: function (artist) {
-                console.log(artist.message.body);
+        method: "GET",
+        data: {
+            apikey: "ab6018d2a0d1bbeef89eaa602857cdd8",
+            q_lyrics: lyrics,
+            page_size: 30,
+            format: "jsonp",
+            callback: "jsonp_callback"
+        },
+        url: "https://api.musixmatch.com/ws/1.1/track.search",
+        async: false,
+        dataType: "jsonp",
+        jsonpCallback: "jsonp_callback",
+        contentType: 'application/json',
+        success: function (artist) {
+            console.log(artist.message.body);
 
-                // console.log(artist.message.body.track_list[0].track.artist_name)
-                var trackList = artist.message.body.track_list;
-                console.log("tracklist" + trackList)
-                var test = "yellow";
-
-                // add the table to the html
-                $("#song-return").append(tableHTML);
-
-            };
+            // console.log(artist.message.body.track_list[0].track.artist_name)
+            var trackList = artist.message.body.track_list;
+            console.log("tracklist" + trackList)
+      
+            // build the basic table for the data
+                $("#song-return").append(tableHTML);          
 
             for (let i = 0; i < trackList.length; i++) {
 
-                console.log("tracklist i" + trackList[i])
-                console.log(trackList[i].track.first_release_date);
-                //var artistname = $("artist"); 
-
-
-                //*************************************************************************************
-                let songTitle = trackList[i].track.track_name;
+                 let songTitle = trackList[i].track.track_name;
                 let artist = trackList[i].track.artist_name;
                 let album = trackList[i].track.album_name;
-
-
 
                 let queryURL = "https://api.spotify.com/v1/search?q=" + songTitle +
                     "&type=track&limit=30&offset=0";
@@ -131,10 +120,10 @@ $("#search-button").click(function (event) {
 
                         //*************************************************************************************
                         if (linkReturn != "") {
-
+             
                             console.log("Spotify Link: " + linkReturn);
 
-
+                                           
 
                             $("#songTable > tbody").append("<tr><td>" +
                                 trackList[i].track.track_name +
