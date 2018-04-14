@@ -132,6 +132,24 @@ $("#search-button").click(function (event) {
                             //     '</div>');
                             // $("#song-return").append(songReturn);
 
+                            let tableHTML = `<table class="table table-hover" id="songTable">
+<thead>
+    <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Album</th>
+        <th>Year</th>
+        <th>Spotify</th>
+        <th>Lyrics</th>
+    </tr>
+</thead>
+<tbody>
+    <!-- entries added here dynamically -->
+</tbody>
+</table>`;
+
+                            $("#song-return").append(tableHTML);
+
                             $("#songTable > tbody").append("<tr><td>" +
                                 trackList[i].track.track_name +
                                 "</td><td>" +
