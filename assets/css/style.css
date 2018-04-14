@@ -41,3 +41,19 @@ footer.page-footer {
     background-color: #3d6ebf; 
     margin-top: 40px;
   }
+
+  th {
+    font-weight: bold;
+  }
+
+  #songTable {
+    width:700px;
+    /* height:300px; */
+    /* background-color:#d9d9d9; */
+    position:fixed;
+    margin-left:-150px; /* half of width */
+    /* margin-top:-150px;  half of height */
+    /* top:50%; */
+    left:50%;
+
+  }
