@@ -5,8 +5,8 @@ const tableHTML = `<table class="table table-hover" id="songTable">
         <th>Artist</th>
         <th>Album</th>
         <th>Year</th>
-        <th>Lyrics</th>
-        <th>Spotify</th>
+        <th></th>
+        <th></th>
     </tr>
 </thead>
 <tbody>
@@ -134,7 +134,7 @@ $("#search-button").click(function (event) {
                                 "</td><td>" +
                                 trackList[i].track.first_release_date.substring(0, 4) +
                                 "</td><td>" +
-                                "<span><a target='_blank' href=" + trackList[i].track.track_share_url + ">Lyrics</a></span>" +
+                                "<span><a target='_blank' href=" + trackList[i].track.track_share_url + "><img src='assets/images/musixmatch.jpg' class='musixmatchImg'></a></span>" +
                                 "</td><td>" +
                                 "<span><a target = '_blank' href=" + linkReturn + "><img src='assets/images/spotify.png' class='spotifyImg'></a></span>" +
                                 "</td></tr>");
