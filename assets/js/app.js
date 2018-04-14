@@ -23,7 +23,7 @@ var config = {
     messagingSenderId: "24241039386"
 };
 
-$("#songTable").DataTable();
+
 
 firebase.initializeApp(config);
 var database = firebase.database();
@@ -60,7 +60,8 @@ $("#search-button").click(function (event) {
             console.log("tracklist" + trackList)
       
             // build the basic table for the data
-                $("#song-return").append(tableHTML);          
+                $("#song-return").append(tableHTML);   
+                $("#songTable").DataTable();       
 
             for (let i = 0; i < trackList.length; i++) {
 
