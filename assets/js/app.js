@@ -137,11 +137,10 @@ $("#search-button").click(function (event) {
                                 "<span><a target = '_blank' href=" + linkReturn + "><img src='assets/images/spotify.png' class='spotifyImg'></a></span>" +
                                 "</td></tr>");
 
-                                $("#songTable").DataTable();
                             // songReturn.addClass('titleBox');
 
                         };
-
+                        $("#songTable").DataTable();
                     });
 
             };
