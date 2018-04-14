@@ -1,6 +1,6 @@
-$(document).ready( function () {
-    $('#songTable').DataTable();
-} );
+// $(document).ready( function () {
+//     $('#songTable').DataTable();
+// } );
 
 
 
