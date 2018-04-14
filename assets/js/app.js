@@ -87,31 +87,29 @@ $("#search-button").click(function (event) {
                         },
                     })
                     .then(function (response) {
-                        console.log(response);
-                        console.log("success API");
-
+                        // console.log(response);
+                        // console.log("success API");
 
                         // find match song title
                         let linkReturn = "";
                         mainLoop:
                             for (let x = 0; x < response.tracks.items.length; x++) {
                                 // chech for match on song title and album name
-                                console.log("name: " + response.tracks.items[x].name);
-                                console.log("album: " + response.tracks.items[x].album.name);
+                                // console.log("name: " + response.tracks.items[x].name);
+                                // console.log("album: " + response.tracks.items[x].album.name);
                                 if (response.tracks.items[x].name === songTitle &&
                                     response.tracks.items[x].album.name === album) {
                                     //when match song and album, look for match on artist
                                     for (let y = 0; y < response.tracks.items[x].album.artists
                                         .length; y++) {
                                         // when artist matches, return spotify link
-                                        console.log("artist: " + response.tracks.items[
-                                            x].album.artists[y].name);
+                                        // console.log("artist: " + response.tracks.items[
+                                            // x].album.artists[y].name);
                                         if (response.tracks.items[x].album.artists[y].name =
                                             artist) {
-                                            console.log("link found: " + response.tracks
-                                                .items[x].external_urls.spotify);
-                                            linkReturn = response.tracks.items[x].external_urls
-                                                .spotify;
+                                            // console.log("link found: " + response.tracks
+                                                // .items[x].external_urls.spotify);
+                                            linkReturn = response.tracks.items[x].external_urls.spotify;
                                             break mainLoop;
                                         };
                                     };
@@ -139,9 +137,8 @@ $("#search-button").click(function (event) {
                                 "<span><a target = '_blank' href=" + linkReturn + "><img src='assets/images/spotify.png' class='spotifyImg'></a></span>" +
                                 "</td></tr>");
 
-                                $("#songTable").DataTable();
-
-                            songReturn.addClass('titleBox');
+                              
+                            // songReturn.addClass('titleBox');
 
                         };
 
@@ -149,4 +146,7 @@ $("#search-button").click(function (event) {
             };
         }
     });
+
+    $("#songTable").DataTable();
+
 });
