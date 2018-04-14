@@ -1,6 +1,3 @@
-// $(document).ready( function () {
-//     $('#songTable').DataTable();
-// } );
 
 
 
@@ -155,6 +152,6 @@ $("#search-button").click(function (event) {
         }
                
     });
-    $("#songTable").DataTable();
+  
 });
 
