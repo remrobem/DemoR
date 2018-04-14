@@ -1,3 +1,9 @@
+$(document).ready( function () {
+    $('#songTable').DataTable();
+} );
+
+
+
 const tableHTML = `<table class="table table-hover" id="songTable" style="width:70%">
 <thead>
     <tr>
