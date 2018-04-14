@@ -58,14 +58,13 @@ $("#search-button").click(function (event) {
             // console.log(artist.message.body.track_list[0].track.artist_name)
             var trackList = artist.message.body.track_list;
             console.log("tracklist" + trackList)
-      
+
             // build the basic table for the data
-                $("#song-return").append(tableHTML);   
-                $("#songTable").DataTable();       
+            $("#song-return").append(tableHTML);
 
             for (let i = 0; i < trackList.length; i++) {
 
-                 let songTitle = trackList[i].track.track_name;
+                let songTitle = trackList[i].track.track_name;
                 let artist = trackList[i].track.artist_name;
                 let album = trackList[i].track.album_name;
 
@@ -107,11 +106,11 @@ $("#search-button").click(function (event) {
                                         .length; y++) {
                                         // when artist matches, return spotify link
                                         // console.log("artist: " + response.tracks.items[
-                                            // x].album.artists[y].name);
+                                        // x].album.artists[y].name);
                                         if (response.tracks.items[x].album.artists[y].name =
                                             artist) {
                                             // console.log("link found: " + response.tracks
-                                                // .items[x].external_urls.spotify);
+                                            // .items[x].external_urls.spotify);
                                             linkReturn = response.tracks.items[x].external_urls.spotify;
                                             break mainLoop;
                                         };
@@ -121,8 +120,8 @@ $("#search-button").click(function (event) {
 
                         //*************************************************************************************
                         if (linkReturn != "") {
-             
-                            console.log("Spotify Link: " + linkReturn);                                           
+
+                            console.log("Spotify Link: " + linkReturn);
 
                             $("#songTable > tbody").append("<tr><td>" +
                                 trackList[i].track.track_name +
@@ -138,7 +137,7 @@ $("#search-button").click(function (event) {
                                 "<span><a target = '_blank' href=" + linkReturn + "><img src='assets/images/spotify.png' class='spotifyImg'></a></span>" +
                                 "</td></tr>");
 
-                              
+
                             // songReturn.addClass('titleBox');
 
                         };
@@ -147,7 +146,5 @@ $("#search-button").click(function (event) {
             };
         }
     });
-
-  
-
+    $("#songTable").DataTable();   
 });
