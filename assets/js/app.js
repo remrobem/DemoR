@@ -143,10 +143,10 @@ $("#search-button").click(function (event) {
                                 "</td><td>" +
                                 "<span><a target='_blank' href=" + trackList[i].track.track_share_url + ">Lyrics</a></span>" +
                                 "</td><td>" +
-                                "<span><a target = '_blank' href = " + linkReturn + ">Spotify&nbsp;&nbsp;</a></span>" +
+                                "<span><a target = '_blank' href=" + linkReturn + ">Spotify</a></span>" +
                                 "</td></tr>");
 
-                            // songReturn.addClass('titleBox');
+                            songReturn.addClass('titleBox');
 
                         };
 
