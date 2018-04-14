@@ -14,10 +14,6 @@ const tableHTML = `<table class="table table-hover" id="songTable">
 </tbody>
 </table>`;
 
-let tableBuilt = false;
-
-
-
 var config = {
     apiKey: "AIzaSyBsPXDi99BrxNm0bPOL68bdEq_T63CK_oI",
     authDomain: "dj-roosa.firebaseapp.com",
@@ -41,26 +37,31 @@ $("#search-button").click(function (event) {
     });
 
     $.ajax({
-        method: "GET",
-        data: {
-            apikey: "ab6018d2a0d1bbeef89eaa602857cdd8",
-            q_lyrics: lyrics,
-            page_size: 30,
-            format: "jsonp",
-            callback: "jsonp_callback"
-        },
-        url: "https://api.musixmatch.com/ws/1.1/track.search",
-        async: false,
-        dataType: "jsonp",
-        jsonpCallback: "jsonp_callback",
-        contentType: 'application/json',
-        success: function (artist) {
-            console.log(artist.message.body);
+            method: "GET",
+            data: {
+                apikey: "ab6018d2a0d1bbeef89eaa602857cdd8",
+                q_lyrics: lyrics,
+                page_size: 30,
+                format: "jsonp",
+                callback: "jsonp_callback"
+            },
+            url: "https://api.musixmatch.com/ws/1.1/track.search",
+            async: false,
+            dataType: "jsonp",
+            jsonpCallback: "jsonp_callback",
+            contentType: 'application/json',
+            success: function (artist) {
+                console.log(artist.message.body);
 
-            // console.log(artist.message.body.track_list[0].track.artist_name)
-            var trackList = artist.message.body.track_list;
-            console.log("tracklist" + trackList)
-            var test = "yellow";
+                // console.log(artist.message.body.track_list[0].track.artist_name)
+                var trackList = artist.message.body.track_list;
+                console.log("tracklist" + trackList)
+                var test = "yellow";
+
+                // add the table to the html
+                $("#song-return").append(tableHTML);
+
+            };
 
             for (let i = 0; i < trackList.length; i++) {
 
@@ -131,31 +132,9 @@ $("#search-button").click(function (event) {
                         //*************************************************************************************
                         if (linkReturn != "") {
 
-                            console.log(songTitle);
-                            console.log(artist);
                             console.log("Spotify Link: " + linkReturn);
-                            // var songReturn = $('<div>' +
-                            //     "<strong>Title: </strong>" + trackList[i].track.track_name +
-                            //     '<br>' +
-                            //     "<strong>Artist: </strong>" + trackList[i].track.artist_name +
-                            //     '<br>' +
-                            //     "<strong>Album: </strong>" + trackList[i].track.album_name +
-                            //     '<br>' +
-                            //     "<strong>Year: </strong>" + trackList[i].track.first_release_date
-                            //     .substring(0, 4) +
-                            //     "<span><a target='_blank' class='right' href=" +
-                            //     trackList[i].track.track_share_url +
-                            //     ">Lyrics</a></span>" +
-                            //     "<span><a target='_blank' class='right' href=" +
-                            //     linkReturn +
-                            //     ">Spotify&nbsp;&nbsp;</a></span>" +
-                            //     '</div>');
-                            // $("#song-return").append(songReturn);
 
-                            if ( !tableBuilt) {
-                                $("#song-return").append(tableHTML);
-                                tableBuilt = true;
-                            };                           
+
 
                             $("#songTable > tbody").append("<tr><td>" +
                                 trackList[i].track.track_name +
