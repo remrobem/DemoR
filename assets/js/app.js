@@ -64,8 +64,7 @@ $("#search-button").click(function (event) {
 
             // build the basic table for the data
             $("#song-return").append(tableHTML);
-            $("#songTable").dataTable();
-
+          
             for (let i = 0; i < trackList.length; i++) {
 
                 let songTitle = trackList[i].track.track_name;
