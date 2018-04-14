@@ -1,3 +1,23 @@
+const tableHTML = `<table class="table table-hover" id="songTable">
+<thead>
+    <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Album</th>
+        <th>Year</th>
+        <th>Lyrics</th>
+        <th>Spotify</th>
+    </tr>
+</thead>
+<tbody>
+    <!-- entries added here dynamically -->
+</tbody>
+</table>`;
+
+let tableBuilt = false;
+
+
+
 var config = {
     apiKey: "AIzaSyBsPXDi99BrxNm0bPOL68bdEq_T63CK_oI",
     authDomain: "dj-roosa.firebaseapp.com",
@@ -132,23 +152,10 @@ $("#search-button").click(function (event) {
                             //     '</div>');
                             // $("#song-return").append(songReturn);
 
-                            let tableHTML = `<table class="table table-hover" id="songTable">
-<thead>
-    <tr>
-        <th>Title</th>
-        <th>Artist</th>
-        <th>Album</th>
-        <th>Year</th>
-        <th>Lyrics</th>
-        <th>Spotify</th>
-    </tr>
-</thead>
-<tbody>
-    <!-- entries added here dynamically -->
-</tbody>
-</table>`;
-
-                            $("#song-return").append(tableHTML);
+                            if ( !tableBuilt) {
+                                $("#song-return").append(tableHTML);
+                                tableBuilt = true;
+                            };                           
 
                             $("#songTable > tbody").append("<tr><td>" +
                                 trackList[i].track.track_name +
