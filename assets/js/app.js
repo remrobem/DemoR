@@ -146,6 +146,7 @@ $("#search-button").click(function (event) {
                         };
 
                     });
+                    $("#songTable").DataTable();
             };
             
         }
