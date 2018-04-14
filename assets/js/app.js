@@ -4,7 +4,7 @@
 
 
 
-const tableHTML = `<table class="table table-hover" id="songTable" style="width:70%">
+const tableHTML = `<table class="table table-hover" class="display" id="songTable" style="width:70%">
 <thead>
     <tr>
         <th>Title</th>
