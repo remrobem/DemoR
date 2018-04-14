@@ -139,8 +139,8 @@ $("#search-button").click(function (event) {
         <th>Artist</th>
         <th>Album</th>
         <th>Year</th>
-        <th>Spotify</th>
         <th>Lyrics</th>
+        <th>Spotify</th>
     </tr>
 </thead>
 <tbody>
