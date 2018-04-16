@@ -55,13 +55,13 @@ function getMusixMatch(lyrics) {
             apikey: "ab6018d2a0d1bbeef89eaa602857cdd8",
             q_lyrics: lyrics,
             page_size: 30,
-            format: "jsonp",
-            callback: "jsonp_callback"
+            // format: "jsonp",
+            // callback: "jsonp_callback"
         },
         url: "https://api.musixmatch.com/ws/1.1/track.search",
         async: false,
-        dataType: "jsonp",
-        jsonpCallback: "jsonp_callback",
+        // dataType: "jsonp",
+        // jsonpCallback: "jsonp_callback",
         contentType: 'application/json',
         success: function (artist) {
             // console.log(artist.message.body);
@@ -147,7 +147,7 @@ function getMusixMatch(lyrics) {
                                 "</td><td>" +
                                 "<span><a target = '_blank' href=" + linkReturn + "><img src='assets/images/spotify.png' class='spotifyImg'></a></span>" +
                                 "</td></tr>");
-console.log("add table: " + trackList[i].track.track_name);
+                            console.log("add table: " + trackList[i].track.track_name);
                             // songReturn.addClass('titleBox');
 
                         };
@@ -159,4 +159,6 @@ console.log("add table: " + trackList[i].track.track_name);
         },
         error: function () {}
     });
+    console.log("return");
+    return artist.message.body.track_list;
 };
