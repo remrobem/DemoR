@@ -35,7 +35,7 @@ $("#search-button").click(function (event) {
 
     // pushing Lyrics/Search Info to Firebase
     firebase.database().ref().push({
-        lyrics: lyrics
+        lyrics: searchTerm
     });
 
 
