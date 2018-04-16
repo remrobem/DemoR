@@ -43,6 +43,7 @@ $("#search-button").click(function (event) {
     let songList = getMusixMatch(searchTerm);
     console.log("after function");
     console.log(songList);
+    $("#songTable").DataTable();
 
 });
 
@@ -146,7 +147,7 @@ function getMusixMatch(lyrics) {
                                 "</td><td>" +
                                 "<span><a target = '_blank' href=" + linkReturn + "><img src='assets/images/spotify.png' class='spotifyImg'></a></span>" +
                                 "</td></tr>");
-
+console.log("add table: " + trackList[i].track.track_name);
                             // songReturn.addClass('titleBox');
 
                         };
