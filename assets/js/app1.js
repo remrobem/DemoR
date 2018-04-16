@@ -31,7 +31,7 @@ var database = firebase.database();
 $("#search-button").click(function (event) {
     event.preventDefault();
     $("#song-return").empty();
-    var lyrics = $("#lyrics-input").val().trim();
+    var searchTerm = $("#lyrics-input").val().trim();
 
     // pushing Lyrics/Search Info to Firebase
     firebase.database().ref().push({
@@ -39,9 +39,15 @@ $("#search-button").click(function (event) {
     });
 
 
+    console.log("before function");
+    let songList = getMusixMatch(searchTerm);
+    console.log("after function");
+    console.log(songList);
 
+});
 
-    
+function getMusixMatch(lyrics) {
+
     $.ajax({
         method: "GET",
         data: {
@@ -57,11 +63,11 @@ $("#search-button").click(function (event) {
         jsonpCallback: "jsonp_callback",
         contentType: 'application/json',
         success: function (artist) {
-            console.log(artist.message.body);
+            // console.log(artist.message.body);
 
             // console.log(artist.message.body.track_list[0].track.artist_name)
             var trackList = artist.message.body.track_list;
-            console.log("tracklist" + trackList)
+            // console.log("tracklist" + trackList)
 
             // build the basic table for the data
             $("#song-return").append(tableHTML);
@@ -125,7 +131,7 @@ $("#search-button").click(function (event) {
                         //*************************************************************************************
                         if (linkReturn != "") {
 
-                            console.log("Spotify Link: " + linkReturn);
+                            // console.log("Spotify Link: " + linkReturn);
 
                             $("#songTable > tbody").append("<tr><td>" +
                                 trackList[i].track.track_name +
@@ -148,10 +154,8 @@ $("#search-button").click(function (event) {
                     });
 
             };
-           
-        },
-        error: function () {
-        }
-    });
 
-});
+        },
+        error: function () {}
+    });
+};
